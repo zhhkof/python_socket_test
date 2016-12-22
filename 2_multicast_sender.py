@@ -3,12 +3,12 @@ import struct
 from socket import *
 
 # 发送端本机ip和端口
-SENDERIP = '10.80.5.232'
+SENDERIP = '10.80.5.235'
 SENDERPORT = 1501
 
 # 组播地址端口等
-MYPORT = 1234
-MYGROUP = '224.1.1.1'
+MYPORT = 1600
+MYGROUP = '224.1.1.10'
 MYTTL = 255
 
 
@@ -25,8 +25,9 @@ def sender():
     while True:
         data = (time.strftime('%Y-%m-%d %H:%M:%S') + ': multicast test data.').encode('utf-8')  # socket发送需转成byte字节。
         s.sendto(data, (MYGROUP, MYPORT))
+        print(data)
         print("send data ok !")
-        time.sleep(1)
+        #time.sleep(1)
 
 
 if __name__ == "__main__":
